@@ -53,13 +53,13 @@ Cada componente del proyecto cumple una función determinada para evitar mezclar
 
 ## Flujo de Venta
 
-El proceso comienza verificando que el usuario y el producto existan, posteriormente se comprueba que la cantidad solicitada sea mayor que cero y que exista suficiente stock, si todas las condiciones se cumplen, el sistema disminuye el inventario, registra la venta y actualiza los archivos productos. json y ventas. json, mientras que si alguna validacion falla, la operacion es rechazada sin modificar la información almacenada.
+El proceso de venta comienza cuando el usuario selecciona el producto que desea comprar y proporciona su identificación, posteriormente, el sistema verifica que tanto el **usuario_id** como el **producto_id** existan en sus respectivas colecciones, luego se comprueba que la cantidad solicitada sea mayor que cero y que el producto tenga suficiente stock disponible, si todas las validaciones son correctas, se ejecuta **producto.vender(cantidad)** para disminuir las unidades disponibles, después se crea una nueva instancia de **Venta** con la información de la transacción y finalmente se actualizan los archivos **JSON**, permitiendo que el nuevo stock y la venta queden registrados de forma permanente.
 
 ---
 
 ## Persistencia y Pruebas
 
-La informacion se mantiene mediante tres archivos JSON, donde productos.ison almacena el catálogo y stock, usuarios.ison conserva los usuarios registrados y ventas.json mantiene el historial de compras, para comprobar su funcionamiento se realizaron ventas exitosas, intentos de compra con stock insuficiente y consultas del historial, verificando que los cambios se conservaran correctamente después de reiniciar la aplicación.
+La persistencia permite que la información del sistema se conserve después de cerrar la aplicación, por lo que **productos.json** mantiene los productos y su stock actualizado, **usuarios.json** almacena los usuarios registrados y **ventas.json** conserva el historial de las transacciones realizadas, para comprobar este funcionamiento se registró un producto con 12 unidades de stock y se realizó ventas de los demás productos registrados, verificando que el stock disminuyera y que las ventas aparecieran en el archivo correspondiente, además, se realizó una prueba con una cantidad superior al stock disponible para comprobar que la operación fuera rechazada sin modificar los datos, finalmente, se reinició la aplicación y se verificó que la información permaneciera disponible y que el historial pudiera consultarse correctamente.
 
 ---
 
