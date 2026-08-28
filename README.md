@@ -14,13 +14,13 @@
 
 ## Descripción General del Sistema
 
-Este proyecto es una aplicación desarrollada en Python que permite gestionar productos, usuarios y ventas de un restaurante mediante una interfaz de consola, incorporando el control de stock y las relaciones entre las diferentes entidades del sistema, ademas, la información se almacena de forma permanente mediante archivos JSON, permitiendo conservar los datos después de cerrar la aplicación y recuperarlos nuevamente cuando el sistema se inicia.
+Este proyecto corresponde a una nueva versión del sistema **restaurante_app**, en la cual se incorporan relaciones entre diferentes entidades mediante el uso de **Programación Orientada a Objetos**, permitiendo gestionar productos, usuarios y ventas de una manera más organizada y cercana a un escenario real, además, el sistema incorpora el control de stock y el registro de las ventas realizadas, de manera que cada compra pueda relacionarse con un usuario y un producto específico, mientras que la información se conserva mediante archivos independientes en formato **JSON**, permitiendo recuperar los datos cuando la aplicación vuelve a ejecutarse.
 
 ---
 
 ## Estructura del Proyecto
 
-El sistema se encuentra organizado en módulos para separar las responsabilidades y facilitar la comprensión del código, de manera que la carpeta datos almacena la información persistente, modelos contiene las clases principales, servicios administra la lógica del sistema y el acceso a los archivos JSON, mientras que main.py funciona como punto de entrada y permite al usuario interactuar mediante un menú de consola.
+El sistema se encuentra organizado en módulos para separar las responsabilidades y facilitar la comprensión del código, de manera que la carpeta llamada **datos** almacena la información persistente, la de **modelos** contiene las clases principales, en **servicios** se administra la lógica del sistema y el acceso a los archivos **JSON**, mientras que el archivo **main.py** funciona como punto de entrada y permite al usuario interactuar mediante un menú de consola.
 
 ```text
 restaurante_app/
