@@ -65,6 +65,6 @@ La informacion se mantiene mediante tres archivos JSON, donde productos.ison alm
 
 ## Reflexión Final
 
-La implementación de relaciones, ventas y persistencia permite que el sistema sea más completo y cercano a una situación real, ya que los productos, usuarios y ventas pueden relacionarse y conservar su información de manera permanente, además, la separación de responsabilidades facilita el mantenimiento del código y fortalece la aplicación de los conceptos de Programacion Orientada a Objetos en Python.
+La incorporación de relaciones entre entidades, control de inventario y persistencia en **JSON** permite que el sistema se aproxime cada vez más al funcionamiento de una aplicación real, ya que ahora no solamente se administran productos y usuarios, sino que también es posible relacionarlos mediante las ventas realizadas y conservar esta información después de cerrar el programa, además, la separación de responsabilidades facilita la comprensión del código y permite realizar cambios de manera más segura, fortaleciendo así el aprendizaje de **Programación Orientada a Objetos** y proporcionando una estructura preparada para incorporar nuevas funcionalidades en futuras versiones.
 
 <div>
