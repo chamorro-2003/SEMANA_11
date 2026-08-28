@@ -57,27 +57,14 @@ El proceso comienza verificando que el usuario y el producto existan, posteriorm
 
 ---
 
-## Flujo de Carga y Guardado
+## Persistencia y Pruebas
 
-El proceso comienza cuando el usuario ejecuta **main.py**, luego el sistema solicita a **ArchivoServicio** que cargue la información almacenada en **productos.json** posteriormente, los datos obtenidos mediante **json.load()** son revisados y utilizados para reconstruir los objetos **Producto**, los cuales son enviados al servicio **Restaurante** para trabajar con ellos en memoria. Después, cuando el usuario realiza una operación de registro, actualización o eliminación y esta se completa correctamente, el sistema convierte nuevamente los objetos a diccionarios mediante **a_diccionario()** y finalmente guarda la información actualizada utilizando **json.dump()**.
-
----
-
-## Manejo de Excepciones
-
-Para evitar que errores inesperados interrumpan el funcionamiento del sistema, se implementan diferentes excepciones según el problema que pueda presentarse, de modo que **FileNotFoundError** permite iniciar el programa con una lista vacía cuando el archivo todavía no existe, mientras que **JSONDecodeError** controla archivos **JSON** dañados o con una estructura incorrecta, asimismo, **PermissionError** permite controlar problemas relacionados con los permisos de lectura o escritura, **KeyError** identifica información faltante al reconstruir un producto y **ValueError** permite controlar datos que no cumplen las reglas establecidas, como precios o identificadores inválidos.
-
----
-
-## Verificación de la Persistencia
-
-Para comprobar que el sistema conserva correctamente la información, se realizó una prueba en la que primero se ejecuto **main.py** y posteriormente se registraron
-dos productos mediante el menú, después se verificó que el archivo **datos/productos.json** almacenara los registros y se cerró completamente la aplicación. Luego, se volvió a ejecutar el sistema y se comprobó mediante la opción de listado que los productos continuaban disponibles, finalmente, se eliminó uno de ellos, se reinicio nuevamente la aplicación y se verifico que el cambio también permaneciera guardado en el archivo, demostrando así que la persistencia funciona correctamente.
+La informacion se mantiene mediante tres archivos JSON, donde productos.ison almacena el catálogo y stock, usuarios.ison conserva los usuarios registrados y ventas.json mantiene el historial de compras, para comprobar su funcionamiento se realizaron ventas exitosas, intentos de compra con stock insuficiente y consultas del historial, verificando que los cambios se conservaran correctamente después de reiniciar la aplicación.
 
 ---
 
 ## Reflexión Final
 
-La incorporación de la persistencia de datos permite comprender la importancia de almacenar la información de manera permanente dentro de una aplicación, ya que anteriormente los datos podían mantenerse únicamente durante la ejecución del programa, mientras que mediante **JSON** es posible conservarlos y recuperarlos posteriormente. Además, separar la gestión de archivos en **Archivo_Servicio** permite mantener una estructura organizada y evita mezclar la lógica de almacenamiento con las reglas del restaurante, logrando así un sistema más claro, mantenible y preparado para incorporar nuevas funcionalidades en futuras versiones.
+La implementación de relaciones, ventas y persistencia permite que el sistema sea más completo y cercano a una situación real, ya que los productos, usuarios y ventas pueden relacionarse y conservar su información de manera permanente, además, la separación de responsabilidades facilita el mantenimiento del código y fortalece la aplicación de los conceptos de Programacion Orientada a Objetos en Python.
 
 <div>
