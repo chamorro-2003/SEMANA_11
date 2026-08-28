@@ -47,7 +47,7 @@ restaurante_app/
 
 ## Responsabilidad de las Clases y Módulos
 
-Cada componente cumple una función específica, por lo que Producto administra los datos y el stock de los productos, Usuario representa a las personas registradas, mientras que Venta relaciona al usuario con el producto adquirido y la cantidad comprada, por otra parte, Restaurante administra las colecciones y aplica las reglas de negocio, finalmente, Archivo_Servicio se encarga de guardar y cargar la información mediante archivos JSON.
+Cada componente del proyecto cumple una función determinada para evitar mezclar responsabilidades y facilitar el mantenimiento del sistema, por lo tanto, la clase **Producto** representa los artículos disponibles en el restaurante y administra información como su identificación, nombre, precio, categoría y cantidad disponible en stock, mientras que **Usuario** representa a las personas registradas y permite identificar a quienes realizan las compras, por otra parte, **Venta** relaciona un usuario con un producto y una cantidad adquirida, mientras que **Restaurante** administra las colecciones y aplica las reglas necesarias para realizar las diferentes operaciones del sistema.
 
 ---
 
