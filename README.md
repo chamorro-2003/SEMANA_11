@@ -14,27 +14,25 @@
 
 ## Descripción General del Sistema
 
-Este proyecto es una aplicación desarrollada en Python que permite gestionar
-productos, usuarios y ventas de un restaurante mediante una interfaz de consola,
-incorporando el control de stock y las relaciones entre las diferentes entidades del
-sistema, ademas, la información se almacena de forma permanente mediante
-archivos JSON, permitiendo conservar los datos después de cerrar la aplicación y
-recuperarlos nuevamente cuando el sistema se inicia
+Este proyecto es una aplicación desarrollada en Python que permite gestionar productos, usuarios y ventas de un restaurante mediante una interfaz de consola, incorporando el control de stock y las relaciones entre las diferentes entidades del sistema, ademas, la información se almacena de forma permanente mediante archivos JSON, permitiendo conservar los datos después de cerrar la aplicación y recuperarlos nuevamente cuando el sistema se inicia.
 
 ---
 
 ## Estructura del Proyecto
 
-Para mantener una organización adecuada, el sistema se encuentra dividido en módulos que cumplen diferentes responsabilidades, de manera que la carpeta datos almacena la información de forma , la carpeta modelos contiene las clases que representan las entidades del sistema y la carpeta servicios administra tanto el acceso al archivo **JSON** como las operaciones relacionadas con los productos, mientras que el archivo **main.py** funciona como punto de entrada y coordina la interacción entre el usuario y los diferentes componentes de la aplicación.
+El sistema se encuentra organizado en módulos para separar las responsabilidades y facilitar la comprensión del código, de manera que la carpeta datos almacena la información persistente, modelos contiene las clases principales, servicios administra la lógica del sistema y el acceso a los archivos JSON, mientras que main.py funciona como punto de entrada y permite al usuario interactuar mediante un menú de consola.
 
 ```text
 restaurante_app/
 ├── datos/
 │   ├── productos.json
+│   ├── usuarios.json
+│   ├── ventas.json
 ├── modelos/
 │   ├── __init__.py
 │   ├── producto.py
-│   └── usuario.py
+│   ├── usuario.py
+│   └── venta.json
 ├── servicios/
 │   ├── __init__.py
 │   ├── archivo_servicio.py
@@ -49,13 +47,13 @@ restaurante_app/
 
 ## Responsabilidad de las Clases y Módulos
 
-Cada componente del proyecto cumple una función específica para mantener el código organizado y facilitar su mantenimiento, por lo tanto, la clase **Producto** representa la información y las validaciones de cada producto, además de permitir convertir sus datos a un formato compatible con **JSON**, mientras que Usuario representa a los usuarios administradores durante la ejecución del programa, por otra parte, **Archivo_Servicio** se encarga de leer y guardar la información en el archivo **JSON**, Restaurante administra los productos en memoria y realiza las operaciones **CRUD**, finalmente, **main.py** controla el menú y la interacción con el usuario.
+Cada componente cumple una función específica, por lo que Producto administra los datos y el stock de los productos, Usuario representa a las personas registradas, mientras que Venta relaciona al usuario con el producto adquirido y la cantidad comprada, por otra parte, Restaurante administra las colecciones y aplica las reglas de negocio, finalmente, Archivo_Servicio se encarga de guardar y cargar la información mediante archivos JSON.
 
 ---
 
-## Persistencia de Datos mediante JSON
+## Flujo de Venta
 
-La principal incorporación de esta versión es la posibilidad de conservar los productos después de cerrar el programa, para ello, la información se almacena en el archivo **datos/productos.json**, utilizando las funciones **json. load()** para leer los datos y **json.dump()** para guardarlos, de esta manera, cuando la aplicación inicia, los registros almacenados son recuperados y convertidos nuevamente en objetos de la clase **Producto**, mientras que después de registrar, actualizar o eliminar información, los cambios realizados se guardan nuevamente en el archivo para mantener los datos actualizados.
+El proceso comienza verificando que el usuario y el producto existan, posteriormente se comprueba que la cantidad solicitada sea mayor que cero y que exista suficiente stock, si todas las condiciones se cumplen, el sistema disminuye el inventario, registra la venta y actualiza los archivos productos. json y ventas. json, mientras que si alguna validacion falla, la operacion es rechazada sin modificar la información almacenada.
 
 ---
 
