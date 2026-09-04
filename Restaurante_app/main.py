@@ -6,17 +6,21 @@ from servicios.archivo_servicio import ArchivoServicio
 ## Funciones de interfaz de usuario
 
 def mostrar_menu() -> None:
-    print("\n" + "=" * 45)
-    print("      SISTEMA DE GESTIÓN DE RESTAURANTE      ")
-    print("=" * 45)
-    print("1. Registrar Producto")
-    print("2. Listar Productos")
-    print("3. Registrar Usuario")
-    print("4. Listar Usuarios")
-    print("5. Realizar Venta")
-    print("6. Consultar Ventas por Usuario")
-    print("7. Salir")
-    print("=" * 45)
+    menu_texto = """
+=============================================
+      SISTEMA DE GESTIÓN DE RESTAURANTE      
+=============================================
+1. Registrar Producto
+2. Listar Productos
+3. Buscar Producto por ID
+4. Registrar Usuario
+5. Listar Usuarios
+6. Buscar Usuario por ID
+7. Realizar Venta
+8. Consultar Ventas por Usuario
+9. Salir
+============================================="""
+    print(menu_texto)
 
 ### Función principal
 def main() -> None:
